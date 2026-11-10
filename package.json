@@ -1,0 +1,18 @@
+{
+  "name": "bandungsari.com",
+  "version": "1.0.0",
+  "description": "Website Desa Bandungsari - Neobrutalism & Raycast Design",
+  "main": "src/js/main.js",
+  "scripts": {
+    "build:js": "node scripts/build.js",
+    "watch:js": "npx -y chokidar-cli \"src/js/**/*.js\" -c \"npm run build:js\"",
+    "build:css": "sass src/scss/main.scss public/assets/css/style.css --no-source-map",
+    "watch:css": "sass src/scss/main.scss public/assets/css/style.css --watch --no-source-map",
+    "serve": "npx -y live-server public",
+    "build": "npm run build:css && npm run build:js",
+    "dev": "npx -y concurrently \"npm run watch:css\" \"npm run watch:js\" \"npm run serve\""
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "kepala_desa": "Ledy Heriyanto",
+  "bpd": "Lembaga Perwujudan Demokrasi & Pengawasan",
+  "sekretariat": ["Tata Usaha & Umum", "Keuangan", "Perencanaan"],
+  "pelaksana_teknis": ["Pemerintahan", "Kesejahteraan (Kesra)", "Pelayanan"],
+  "dusun": ["Krajan", "Kedung Kendil", "Sono", "Tegal", "Sendangsuro", "Peting", "Ngangkruk"],
+  "layanan": {
+    "jam_buka": "Senin–Kamis: 08.00–14.00 WIB, Jumat: 08.00–11.00 WIB",
+    "kontak": "0811-8809-3858"
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrol Panel Admin - Bandungsari</title>
+    <meta name="description" content="Dashboard pengelolaan informasi kelurahan dan pengisian berita berjalan desa Bandungsari.">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header" role="banner">
+        <div class="u-container site-header__container">
+            <a href="index.html" class="site-logo">bandungsari.com</a>
+            <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka Menu Navigasi">Menu</button>
+            <nav id="nav-menu" class="site-nav" role="navigation">
+                <a href="index.html" class="ray-nav-item" id="nav-home">HOME</a>
+                <a href="profil.html" class="ray-nav-item" id="nav-profile">PROFIL DESA</a>
+                <a href="religi.html" class="ray-nav-item" id="nav-religi">BANDUNGSARI RELIGI</a>
+                <a href="potensi.html" class="ray-nav-item" id="nav-potensi">POTENSI & KULTUR</a>
+                <a href="kontak.html" class="ray-nav-item" id="nav-kontak">KONTAK / LAYANAN</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="u-container u-mt-lg">
+        <span class="nb-highlight">PANEL INTERNAL ADMINISTRASI</span>
+        <h1 class="u-text-uppercase u-m-0 u-mt-xs" style="font-size: 3.5rem; font-weight: 900;">Kontrol Admin</h1>
+        <p class="u-text-mono" style="font-size: 0.9rem;">PENGELOLAAN BERITA DAN INFORMASI REAL-TIME DESA</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="u-container u-mt-lg">
+        <div class="l-grid l-grid--2-cols">
+            
+            <!-- Add Announcement Form -->
+            <section class="nb-block u-m-0" aria-labelledby="section-input">
+                <h2 id="section-input" class="u-text-uppercase u-mt-0">Tambah Berita Berjalan</h2>
+                <form id="form-announcement" onsubmit="event.preventDefault();">
+                    <div class="u-mb-md">
+                        <label for="announcement-text" class="nb-label">Teks Pengumuman Baru</label>
+                        <input type="text" id="announcement-text" class="nb-input" placeholder="Contoh: HARGA TEBU MENINGKAT JADI RP 1.200 / KG..." required>
+                        <small class="u-text-mono" style="font-size: 0.75rem; display: block; margin-top: 4px; color: var(--text-color-dark);">* Teks akan otomatis dikonversi ke huruf kapital di halaman depan.</small>
+                    </div>
+                    <button type="submit" id="btn-submit-announcement" class="nb-button nb-button--primary" style="width: 100%;">SIMPAN & PUBLIKASIKAN</button>
+                </form>
+            </section>
+
+            <!-- Announcement List Management -->
+            <section class="nb-block u-m-0" aria-labelledby="section-manage">
+                <h2 id="section-manage" class="u-text-uppercase u-mt-0">Daftar Berita Aktif</h2>
+                <div id="announcements-container" style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                    <!-- Announcements list will be dynamically loaded via JS -->
+                </div>
+                <div class="u-mt-lg" style="border-top: 2px solid var(--border-color); padding-top: var(--spacing-md);">
+                    <button id="btn-reset-defaults" class="nb-button" style="width: 100%;">RESET KE DATA DEFAULT DESA</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="u-bg-dark u-text-light u-p-lg u-mt-lg" style="border-top: 4px solid var(--border-color);" role="contentinfo">
+        <div class="u-container u-text-center">
+            <p class="u-text-mono u-m-0" style="font-size: 0.875rem;">
+                © 2026 BANDUNGSARI.COM - ALL RIGHTS RESERVED. POWERED BY NEOBRUTALISM & RAYCAST.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script imports -->
+    <!-- We load main.js for header menu toggling, and admin.js for dashboard form management -->
+    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/components/admin.js"></script>
+</body>
+</html>
