@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+.hermes/
+dist/
+public/assets/css/style.css.map
