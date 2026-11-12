@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .grid-wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 0.5rem 1rem; border-radius: 8px; color: #fff; cursor: pointer; transition: 0.3s; position: relative; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 0.5rem 1rem; border-radius: 8px; color: #fff; cursor: pointer; transition: 0.3s; position: relative; font-size: 0.85rem; }
         .filter-btn.active { background: var(--accent); }
         .filter-btn::after {
             content: '';
@@ -15,17 +15,37 @@
             border-radius: 50%; background: #ff3b30; /* Default: red (empty) */
         }
         .filter-btn.has-data::after { background: #32d74b; /* Green (data ready) */ }
+        
+        @media (max-width: 768px) {
+            .grid-wrapper { grid-template-columns: 1fr; }
+            #filter-container { justify-content: center; }
+            .filter-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+        }
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="u-container site-header__container">
-            <a href="index.html" class="site-logo">bandungsari.com</a>
+            <a href="index.html" class="site-logo" style="font-size: 1.4rem;">Bandungsari.com</a>
+            <button class="menu-toggle" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
             <nav class="site-nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="apbdes.html" class="nav-link is-active">APBDes Transparan</a>
+                <a href="profil.html" class="nav-link">Profil</a>
+                <a href="religi.html" class="nav-link">Religi</a>
+                <a href="potensi.html" class="nav-link">Potensi</a>
+                <a href="wawasan.html" class="nav-link">Wawasan</a>
                 <a href="kontak.html" class="nav-link">Kontak</a>
+                <a href="apbdes.html" class="nav-cta">APBDes 2026</a>
             </nav>
+            <div class="mobile-menu">
+                <a href="profil.html">Profil</a>
+                <a href="religi.html">Religi</a>
+                <a href="potensi.html">Potensi</a>
+                <a href="wawasan.html">Wawasan</a>
+                <a href="kontak.html">Kontak</a>
+                <a href="apbdes.html">APBDes 2026</a>
+            </div>
         </div>
     </header>
 
@@ -40,14 +60,21 @@
         </section>
 
         <div class="grid-wrapper" id="grid">
-            <!-- Cards will be generated via JS -->
+            <!-- Cards generated via JS -->
         </div>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Menu Logic
+            const toggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.mobile-menu');
+            toggle.addEventListener('click', () => {
+                menu.classList.toggle('is-active');
+            });
+
             const years = Array.from({length: 14}, (_, i) => 2014 + i);
-            const dataReady = [2025, 2023]; // Tahun yang ada data
+            const dataReady = [2025]; // 2023 sudah dihapus karena data Banjarejo
             const filterContainer = document.getElementById('filter-container');
             const grid = document.getElementById('grid');
 
@@ -78,10 +105,8 @@
                             <p style="font-weight:700;">Total: Rp 1.652.077.000</p>
                         </div>
                         <a href="https://djpk.kemenkeu.go.id/wp-content/uploads/2024/10/Provinsi-Jawa-Tengah.pdf" class="nav-cta" target="_blank">Lihat PDF Resmi</a>`;
-                } else if (year === 2023) {
-                    content += `<p style="margin: 1rem 0;">Data laporan realisasi anggaran tahun 2023 (Segera tersedia).</p>`;
                 } else {
-                    content += `<p style="margin: 1rem 0;">Data laporan realisasi anggaran tahun ${year} (Segera tersedia).</p>`;
+                    content += `<p style="margin: 1rem 0;">Laporan realisasi anggaran tahun ${year} belum diarsipkan secara digital. Segera tersedia.</p>`;
                 }
                 card.innerHTML = content;
                 grid.appendChild(card);
