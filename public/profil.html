@@ -8,18 +8,30 @@
 </head>
 <body>
     <header class="site-header">
-        <div class="u-container site-header__container">
-            <a href="index.html" class="site-logo">bandungsari.com</a>
+        <div class="site-header__container">
+            <a href="index.html" class="site-logo">Bandungsari.com</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
             <nav class="site-nav">
-                <a href="index.html" class="nav-link">Home</a>
                 <a href="profil.html" class="nav-link is-active">Profil</a>
                 <a href="religi.html" class="nav-link">Religi</a>
                 <a href="potensi.html" class="nav-link">Potensi</a>
+                <a href="wawasan.html" class="nav-link">Wawasan</a>
                 <a href="kontak.html" class="nav-link">Kontak</a>
                 <a href="apbdes.html" class="nav-cta">APBDes 2026</a>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="profil.html" class="mobile-menu__link is-active">Profil <span>&rarr;</span></a>
+        <a href="religi.html" class="mobile-menu__link">Religi <span>&rarr;</span></a>
+        <a href="potensi.html" class="mobile-menu__link">Potensi <span>&rarr;</span></a>
+        <a href="wawasan.html" class="mobile-menu__link">Wawasan & Artikel <span>&rarr;</span></a>
+        <a href="kontak.html" class="mobile-menu__link">Kontak & Layanan <span>&rarr;</span></a>
+        <a href="apbdes.html" class="mobile-menu__cta">Transparansi APBDes 2026</a>
+    </div>
 
     <main class="u-container">
         <section class="hero">
@@ -37,14 +49,14 @@
 
             <div class="glass-card">
                 <h2>Visi Desa</h2>
-                <p style="font-size: 1.1rem; color: #f5f5f7; border-left: 2px solid #2997ff; padding-left: 1rem;">
+                <p style="font-size: 1.05rem; color: #f5f5f7; border-left: 2px solid #2997ff; padding-left: 1rem;">
                     "Mewujudkan Desa Bandungsari yang Religius, Mandiri, Berbudaya Luhur, Serta Unggul dalam Sektor Agrikultur Berbasis Kemandirian Pesantren."
                 </p>
             </div>
 
             <div class="glass-card">
                 <h2>Misi Desa</h2>
-                <ol style="color: var(--text-muted); padding-left: 1.2rem; line-height: 1.6;">
+                <ol style="color: var(--text-muted); padding-left: 1.2rem; line-height: 1.6; font-size: 0.9rem;">
                     <li>Mengembangkan tata kehidupan masyarakat yang religius.</li>
                     <li>Mengoptimalkan potensi pertanian kedelai dan tebu.</li>
                     <li>Melestarikan kearifan budaya gotong-royong.</li>
@@ -78,5 +90,19 @@
             <p>&copy; 2026 Pemerintah Desa Bandungsari. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (toggleBtn && mobileMenu) {
+            toggleBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                const isActive = mobileMenu.classList.contains('is-active');
+                toggleBtn.innerHTML = isActive 
+                    ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                    : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        }
+    </script>
 </body>
 </html>

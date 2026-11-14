@@ -6,35 +6,55 @@
     <title>Transparansi APBDes — Bandungsari</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .grid-wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 0.5rem 1rem; border-radius: 8px; color: #fff; cursor: pointer; transition: 0.3s; position: relative; }
-        .filter-btn.active { background: var(--accent); }
+        .grid-wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+        .filter-btn-container { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); padding: 0.5rem 0.85rem; border-radius: 10px; color: #fff; cursor: pointer; transition: 0.2s ease; position: relative; font-size: 0.85rem; font-weight: 500; min-height: 40px; }
+        .filter-btn.active { background: var(--accent); border-color: var(--accent); }
         .filter-btn::after {
             content: '';
             position: absolute; top: 6px; right: 6px; width: 6px; height: 6px;
-            border-radius: 50%; background: #ff3b30; /* Default: red (empty) */
+            border-radius: 50%; background: #ff3b30;
         }
-        .filter-btn.has-data::after { background: #32d74b; /* Green (data ready) */ }
+        .filter-btn.has-data::after { background: #32d74b; }
+        @media (max-width: 768px) {
+            .grid-wrapper { grid-template-columns: 1fr; }
+            .filter-btn { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
     <header class="site-header">
-        <div class="u-container site-header__container">
-            <a href="index.html" class="site-logo">bandungsari.com</a>
+        <div class="site-header__container">
+            <a href="index.html" class="site-logo">Bandungsari.com</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
             <nav class="site-nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="apbdes.html" class="nav-link is-active">APBDes Transparan</a>
+                <a href="profil.html" class="nav-link">Profil</a>
+                <a href="religi.html" class="nav-link">Religi</a>
+                <a href="potensi.html" class="nav-link">Potensi</a>
+                <a href="wawasan.html" class="nav-link">Wawasan</a>
                 <a href="kontak.html" class="nav-link">Kontak</a>
+                <a href="apbdes.html" class="nav-cta is-active">APBDes 2026</a>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="profil.html" class="mobile-menu__link">Profil <span>&rarr;</span></a>
+        <a href="religi.html" class="mobile-menu__link">Religi <span>&rarr;</span></a>
+        <a href="potensi.html" class="mobile-menu__link">Potensi <span>&rarr;</span></a>
+        <a href="wawasan.html" class="mobile-menu__link">Wawasan & Artikel <span>&rarr;</span></a>
+        <a href="kontak.html" class="mobile-menu__link">Kontak & Layanan <span>&rarr;</span></a>
+        <a href="apbdes.html" class="mobile-menu__cta">Transparansi APBDes 2026</a>
+    </div>
 
     <main class="u-container">
         <section class="hero">
             <div class="hero__badge">Pusat Data Anggaran</div>
             <h1 class="hero__title">APBDes Transparan</h1>
             <p class="hero__lead">Arsip digital APBDes Desa Bandungsari (2014-2027). Dot hijau menandakan data tersedia.</p>
-            <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;" id="filter-container">
+            <div class="filter-btn-container" id="filter-container">
                 <button class="filter-btn active" data-year="all">Semua</button>
             </div>
         </section>
@@ -44,14 +64,31 @@
         </div>
     </main>
 
+    <footer class="site-footer">
+        <div class="u-container">
+            <p>&copy; 2026 Pemerintah Desa Bandungsari, Kec. Ngaringan, Kab. Grobogan. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (toggleBtn && mobileMenu) {
+                toggleBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('is-active');
+                    const isActive = mobileMenu.classList.contains('is-active');
+                    toggleBtn.innerHTML = isActive 
+                        ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                        : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+                });
+            }
+
             const years = Array.from({length: 14}, (_, i) => 2014 + i);
-            const dataReady = [2025, 2023]; // Tahun yang ada data
+            const dataReady = [2025];
             const filterContainer = document.getElementById('filter-container');
             const grid = document.getElementById('grid');
 
-            // Setup Filters
             years.forEach(year => {
                 const btn = document.createElement('button');
                 btn.className = 'filter-btn';
@@ -61,7 +98,6 @@
                 filterContainer.appendChild(btn);
             });
 
-            // Setup Cards
             years.forEach(year => {
                 const card = document.createElement('div');
                 card.className = 'glass-card';
@@ -77,17 +113,14 @@
                             <hr style="border:0; border-top:1px solid var(--border-glass); margin:0.5rem 0;">
                             <p style="font-weight:700;">Total: Rp 1.652.077.000</p>
                         </div>
-                        <a href="https://djpk.kemenkeu.go.id/wp-content/uploads/2024/10/Provinsi-Jawa-Tengah.pdf" class="nav-cta" target="_blank">Lihat PDF Resmi</a>`;
-                } else if (year === 2023) {
-                    content += `<p style="margin: 1rem 0;">Data laporan realisasi anggaran tahun 2023 (Segera tersedia).</p>`;
+                        <a href="https://djpk.kemenkeu.go.id/wp-content/uploads/2024/10/Provinsi-Jawa-Tengah.pdf" class="nav-cta" target="_blank" style="display:inline-block;">Lihat PDF Resmi</a>`;
                 } else {
-                    content += `<p style="margin: 1rem 0;">Data laporan realisasi anggaran tahun ${year} (Segera tersedia).</p>`;
+                    content += `<p style="margin: 1rem 0;">Data laporan realisasi anggaran tahun ${year} belum diarsipkan secara digital. Segera tersedia.</p>`;
                 }
                 card.innerHTML = content;
                 grid.appendChild(card);
             });
 
-            // Filter Logic
             filterContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-btn')) {
                     const year = e.target.getAttribute('data-year');

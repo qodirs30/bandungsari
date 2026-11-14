@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Desa Bandungsari — Wawasan</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__container">
+            <a href="index.html" class="site-logo">Bandungsari.com</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <nav class="site-nav">
+                <a href="profil.html" class="nav-link">Profil</a>
+                <a href="religi.html" class="nav-link">Religi</a>
+                <a href="potensi.html" class="nav-link">Potensi</a>
+                <a href="wawasan.html" class="nav-link is-active">Wawasan</a>
+                <a href="kontak.html" class="nav-link">Kontak</a>
+                <a href="apbdes.html" class="nav-cta">APBDes 2026</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="profil.html" class="mobile-menu__link">Profil <span>&rarr;</span></a>
+        <a href="religi.html" class="mobile-menu__link">Religi <span>&rarr;</span></a>
+        <a href="potensi.html" class="mobile-menu__link">Potensi <span>&rarr;</span></a>
+        <a href="wawasan.html" class="mobile-menu__link is-active">Wawasan & Artikel <span>&rarr;</span></a>
+        <a href="kontak.html" class="mobile-menu__link">Kontak & Layanan <span>&rarr;</span></a>
+        <a href="apbdes.html" class="mobile-menu__cta">Transparansi APBDes 2026</a>
+    </div>
+
+    <main class="u-container">
+        <section class="hero" style="text-align: left; padding: 3rem 0 1.5rem;">
+            <a href="wawasan.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500;">&larr; Kembali ke Wawasan</a>
+            <h1 class="hero__title" style="margin-top: 1rem; font-size: clamp(2rem, 6vw, 3.2rem);">Bandungsari: Menelusuri Jejak Wali Sanga di Tanah Grobogan</h1>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Diterbitkan oleh Pemerintah Desa Bandungsari &bull; 11 November 2026</p>
+        </section>
+
+        <article class="glass-card span-12" style="margin-bottom: 4rem; line-height: 1.8; color: #e5e7eb;">
+            <p><strong>Desa Bandungsari</strong>, yang terletak di Kecamatan Ngaringan, Kabupaten Grobogan, Jawa Tengah, bukan sekadar wilayah administratif agraris biasa. Desa ini menyimpan sejarah panjang tradisi keilmuan dan keagamaan yang berakar kuat dari masa syiar Islam era Wali Sanga.</p>
+
+            <h2 style="color: #f5f5f7; margin-top: 1.5rem;">Awal Mula Dakwah & Syaikh Ahmad Ali</h2>
+            <p>Menurut tutur lisan dan arsip sejarah lokal, wilayah Bandungsari pertama kali dibuka oleh ulama perintis dakwah yaitu <strong>Syaikh Ahmad Ali</strong>. Beliau menanamkan dasar-dasar syariat Islam, gotong-royong, serta etika kemasyarakatan di antara warga agraris saat itu.</p>
+
+            <h2 style="color: #f5f5f7; margin-top: 1.5rem;">Perkembangan Pesantren & Era Kiai Basyaruddin</h2>
+            <p>Pusat perkembangan keislaman semakin berkembang pesat ketika <strong>Kiai Basyaruddin bin Kiai Raden Jumali</strong> (ulama Tuyuhan) mendirikan pondok pesantren di wilayah yang kini dikenal dengan sebutan "Kulon Kali". Kehadiran pesantren ini menarik minat para santri dari berbagai penjuru Kabupaten Grobogan dan sekitarnya.</p>
+
+            <h2 style="color: #f5f5f7; margin-top: 1.5rem;">Berdirinya Pondok Pesantren Al-Ma'ruf (1944 M)</h2>
+            <p>Pada pertengahan abad ke-20, pengajaran diresmikan secara kelembagaan. Tokoh ulama KH. Masyhuri (murid langsung pendiri Nahdlatul Ulama, Hadratusy Syaikh KH. Hasyim 'Asy'ari) merintis Madrasah Manbaul Ulum pada 1930-an, hingga akhirnya berdiri resmi <strong>Pondok Pesantren Al-Ma'ruf</strong> pada 1944 M.</p>
+
+            <p>Hingga hari ini, Bandungsari terus memegang julukan <em>"Desa Santri"</em> yang memadukan tradisi keagamaan yang luhur dengan kemajuan ekonomi berbasis sektor pertanian kedelai dan tebu.</p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="u-container">
+            <p>&copy; 2026 Pemerintah Desa Bandungsari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (toggleBtn && mobileMenu) {
+            toggleBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                const isActive = mobileMenu.classList.contains('is-active');
+                toggleBtn.innerHTML = isActive 
+                    ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                    : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        }
+    </script>
+</body>
+</html>

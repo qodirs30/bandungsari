@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wawasan & Artikel — Bandungsari</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__container">
+            <a href="index.html" class="site-logo">Bandungsari.com</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            <nav class="site-nav">
+                <a href="profil.html" class="nav-link">Profil</a>
+                <a href="religi.html" class="nav-link">Religi</a>
+                <a href="potensi.html" class="nav-link">Potensi</a>
+                <a href="wawasan.html" class="nav-link is-active">Wawasan</a>
+                <a href="kontak.html" class="nav-link">Kontak</a>
+                <a href="apbdes.html" class="nav-cta">APBDes 2026</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="profil.html" class="mobile-menu__link">Profil <span>&rarr;</span></a>
+        <a href="religi.html" class="mobile-menu__link">Religi <span>&rarr;</span></a>
+        <a href="potensi.html" class="mobile-menu__link">Potensi <span>&rarr;</span></a>
+        <a href="wawasan.html" class="mobile-menu__link is-active">Wawasan & Artikel <span>&rarr;</span></a>
+        <a href="kontak.html" class="mobile-menu__link">Kontak & Layanan <span>&rarr;</span></a>
+        <a href="apbdes.html" class="mobile-menu__cta">Transparansi APBDes 2026</a>
+    </div>
+
+    <main class="u-container">
+        <section class="hero">
+            <div class="hero__badge">Kabar & Literasi Desa</div>
+            <h1 class="hero__title">Wawasan Bandungsari</h1>
+            <p class="hero__lead">Kumpulan artikel sejarah, kebudayaan, potensi lokal, dan catatan sejarah Desa Bandungsari.</p>
+        </section>
+
+        <div class="bento-grid">
+            <div class="glass-card span-12">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                    <span style="font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">Sejarah & Budaya</span>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">11 November 2026</span>
+                </div>
+                <h2>Bandungsari: Menelusuri Jejak Wali Sanga di Tanah Grobogan</h2>
+                <p>Kisah sejarah dakwah Syaikh Ahmad Ali, rintisan Pesantren Al-Ma'ruf sejak 1944, hingga perkembangan budaya kesantrian di Ngaringan.</p>
+                <a href="sejarah-desa.html" class="nav-cta" style="display:inline-block; margin-top: 0.75rem;">Baca Artikel Lengkap &rarr;</a>
+            </div>
+
+            <div class="glass-card">
+                <span style="font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">Agroindustri</span>
+                <h2>Sentra Pertanian Tebu & Kedelai Unggulan</h2>
+                <p>Peran strategis Bandungsari sebagai penopang ketahanan pangan dan industri gula Jawa Tengah.</p>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 1rem;">Segera Hadir</span>
+            </div>
+
+            <div class="glass-card">
+                <span style="font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase;">Kultur Lokal</span>
+                <h2>Tradisi Sedekah Bumi Barikan</h2>
+                <p>Ritus tahunan wujud syukur gotong-royong warga 7 dusun di Bandungsari.</p>
+                <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 1rem;">Segera Hadir</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="u-container">
+            <p>&copy; 2026 Pemerintah Desa Bandungsari. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (toggleBtn && mobileMenu) {
+            toggleBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('is-active');
+                const isActive = mobileMenu.classList.contains('is-active');
+                toggleBtn.innerHTML = isActive 
+                    ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+                    : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        }
+    </script>
+</body>
+</html>
